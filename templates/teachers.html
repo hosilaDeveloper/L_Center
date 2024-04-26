@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<h1 style="margin-top: 60px; margin-bottom: 60px">Teachers</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for teacher in teachers %}
+    <div class="col">
+        <div class="card h-100">
+            <a href="{% url 'teachers_detail' teacher.id %}"><img style="width: 300px; height: 300p; margin-left: 60px" src="{{ teacher.image.url }}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title">{{ teacher.name }}</h5>
+                <p class="card-text">{{ teacher.experience }}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Email: {{ teacher.email }}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+</div>

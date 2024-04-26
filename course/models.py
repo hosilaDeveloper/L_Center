@@ -1,0 +1,42 @@
+from django.db import models
+
+# Create your models here.
+
+
+class TimeStampedModel(models.Model):
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class Teacher(TimeStampedModel):
+    name = models.CharField(max_length=212)
+    image = models.ImageField(upload_to='teachers')
+    surname = models.CharField(max_length=212)
+    email = models.EmailField(null=True, blank=True)
+    experience = models.CharField(max_length=212)
+
+    def str(self):
+        return self.name
+
+
+class Tag(TimeStampedModel):
+    name = models.CharField(max_length=212)
+
+    def str(self):
+        return self.name
+
+
+class Course(TimeStampedModel):
+    name = models.CharField(max_length=212)
+    tags = models.ManyToManyField(Tag)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    description = models.TextField()
+    price = models.PositiveSmallIntegerField(default=0)
+    course_image = models.ImageField(upload_to='course')
+
+    def str(self):
+        return self.name
+    
