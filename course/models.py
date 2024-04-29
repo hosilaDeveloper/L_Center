@@ -18,14 +18,14 @@ class Teacher(TimeStampedModel):
     email = models.EmailField(null=True, blank=True)
     experience = models.CharField(max_length=212)
 
-    def str(self):
+    def __str__(self):
         return self.name
 
 
 class Tag(TimeStampedModel):
     name = models.CharField(max_length=212)
 
-    def str(self):
+    def __str__(self):
         return self.name
 
 
@@ -37,6 +37,6 @@ class Course(TimeStampedModel):
     price = models.PositiveSmallIntegerField(default=0)
     course_image = models.ImageField(upload_to='course')
 
-    def str(self):
+    def __str__(self):
         return self.name
     

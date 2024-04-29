@@ -10,6 +10,6 @@ class Contact(models.Model):
     message = models.TextField()
     is_viewed = models.BooleanField(default=False)
 
-    def str(self):
+    def __str__(self):
         return self.name
     

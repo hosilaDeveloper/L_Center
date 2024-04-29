@@ -8,7 +8,7 @@ class ContactForm(ModelForm):
         fields = '__all__'
 
 
-def init(self, *args, **kwargs):
+def __init__(self, *args, **kwargs):
     super(ContactForm, self).__init__(*args, **kwargs)
     for field_name, field in self.field.items():
         field.widget.atters['class'] = 'form-control'

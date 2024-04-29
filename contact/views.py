@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from .models import Contact
+from .models import Contact
 from .forms import ContactForm
 # Create your views here.
 
